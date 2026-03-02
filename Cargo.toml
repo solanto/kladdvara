@@ -1,8 +1,11 @@
 [package]
-edition = "2024"
 name = "kladdvara"
 version = "0.1.0"
+description = "🍰 my toy LC-3 VM"
+authors = ["andrew sòlanto"]
 license = "GPL-3.0-or-later"
+repository = "https://github.com/solanto/kladdvara"
+edition = "2024"
 
 [dependencies]
 crossterm = "0.29.0"
