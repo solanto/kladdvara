@@ -239,7 +239,7 @@ fn get_character(
             return Ok(Status::Continue);
         }
 
-        if event::poll(Duration::from_millis(1))? {
+        if event::poll(Duration::ZERO)? {
             if let Event::Key(key) = event::read()? {
                 return handle_key_event(key, memory, stdout);
             }
