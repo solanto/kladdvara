@@ -3,7 +3,6 @@ edition = "2024"
 name = "kladdvara"
 version = "0.1.0"
 license = "GPL-3.0-or-later"
-license-file = "LICENSE.md"
 
 [dependencies]
 crossterm = "0.29.0"
