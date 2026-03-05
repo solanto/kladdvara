@@ -1,0 +1,374 @@
+:root {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: none;
+
+    --color__accent: #a30062;
+    --color__neutral: #f3d3dd;
+
+    scrollbar-color: var(--color__accent) transparent;
+}
+
+:root,
+body,
+main {
+    overflow-x: hidden;
+}
+
+header {
+    margin-block-end: 1.5rem;
+
+    p {
+        margin-block: 0;
+        max-width: 45vw;
+    }
+
+    h1 {
+        margin-block-end: 0;
+    }
+
+    nav {
+        display: flex;
+        position: relative;
+        align-items: center;
+
+        a {
+            --size: 5rem;
+            margin-inline-start: auto;
+            position: absolute;
+            top: 15%;
+            right: calc(-0.1 * var(--size));
+
+            img {
+                width: var(--size);
+                height: var(--size);
+            }
+        }
+    }
+}
+
+main {
+    padding: 1ex;
+    background-color: #1A1A1A;
+    color: #e0e0e0;
+    height: 24lh;
+    font-family: "DM Mono", monospace;
+    line-height: 1.3;
+    position: relative;
+
+    .noscript {
+        margin: 0;
+    }
+
+    .flag {
+        font-weight: bold;
+    }
+}
+
+.xterm .xterm-scrollable-element>.scrollbar {
+    touch-action: pan-x pinch-zoom;
+    --width: 14px;
+
+    &,
+    >.slider {
+        width: var(--width) !important;
+        border-radius: calc(var(--width) / 2);
+        overflow: hidden;
+    }
+
+    >.slider {
+        background: color-mix(in oklab, var(--color__neutral), transparent 25%) !important;
+
+        &:hover,
+        &:active {
+            background: var(--color__neutral) !important;
+        }
+    }
+}
+
+*:focus-visible {
+    outline: solid 2px var(--color__accent);
+    outline-offset: 1px;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    max-width: 60rem;
+    padding-inline: 1.5rem;
+    margin-inline: auto;
+    background-color: var(--color__neutral);
+    padding-bottom: 1.5rem;
+}
+
+body,
+a {
+    color: color-mix(in oklab, black 20%, var(--color__accent))
+}
+
+button,
+input,
+label {
+    font-family: inherit;
+}
+
+h1,
+h2 {
+    font-family: "Geom", "Poppins", sans-serif;
+}
+
+h1 {
+    font-size: 2.3rem;
+    letter-spacing: -0.015em;
+    font-weight: 800;
+    color: var(--color__accent);
+}
+
+aside {
+    font-style: italic;
+}
+
+legend {
+    display: block;
+    float: left;
+    width: 100%;
+    margin-block-end: 0.5rem;
+    padding: 0;
+
+    h2 {
+        margin-block: 0;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-block-end: 1.5rem;
+    gap: 1ex;
+
+    br {
+        display: none;
+    }
+
+    .hint {
+        font-size: small;
+    }
+
+    &::after {
+        content: ".";
+        color: transparent;
+        display: block;
+        position: absolute;
+        --size: clamp(5rem, 30vw, 13rem);
+        width: var(--size);
+        height: calc(var(--size) / 2);
+        background-image: url("../public/kladdkaka.avif");
+        background-size: contain;
+        background-position: bottom;
+        bottom: calc(90% + min(8vw, 8%) - 1rem);
+        right: max(9vw, 3rem);
+        z-index: -1;
+        filter: drop-shadow(var(--shadow)) drop-shadow(var(--shadow));
+        background-repeat: no-repeat;
+    }
+}
+
+fieldset {
+    border: none;
+    background-color: canvas;
+    color: canvastext;
+
+    p:first-of-type {
+        margin-block-start: 0;
+    }
+
+    p:last-of-type {
+        margin-block-end: 0;
+    }
+
+    div label:has(input[type=radio]) {
+        display: inline;
+    }
+
+    * {
+        transition: color 0.1s, background-color 0.1s, opacity 0.1s;
+    }
+
+
+    &:disabled {
+        *:not(a) {
+            color: graytext;
+            cursor: auto;
+        }
+
+        a,
+        label:has(input[type=radio])::before {
+            opacity: 70%;
+        }
+    }
+
+}
+
+fieldset,
+form::after,
+main {
+    --shadow: 0 1pt 1pt color-mix(in oklab, black 25%, transparent);
+}
+
+fieldset,
+main {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+input[type=submit],
+label:has(input[type=radio])::before {
+    --transition-duration: 0.1s;
+    transition: background-color var(--transition-duration), border-color var(--transition-duration);
+}
+
+label:has(input[type=radio]) {
+    position: relative;
+    display: block;
+
+    --translate: 0.23em;
+
+    input {
+        appearance: none;
+        opacity: 0;
+        display: inline;
+        width: 100%;
+        position: absolute;
+        height: 100%;
+        left: -0.5em;
+        bottom: calc(var(--translate) / 2);
+    }
+
+    &::before {
+        content: ".";
+        display: inline-block;
+        color: transparent;
+        margin-right: 2em;
+        margin: 0;
+        font: inherit;
+        width: 1.1em;
+        height: 1.1em;
+        border: 0.1rem solid canvastext;
+        border-radius: 50%;
+        box-sizing: border-box;
+        transform: translateY(var(--translate));
+    }
+
+    &:has(:checked)::before {
+        background-color: var(--color__accent);
+        border-color: transparent;
+    }
+}
+
+label:has(input[type=radio]),
+input[type=submit],
+button {
+    cursor: pointer;
+}
+
+.extra {
+    display: flex;
+    flex-direction: column;
+
+    input {
+        display: block;
+
+        &[type=url] {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+}
+
+input[type=url] {
+    border-radius: 1ex;
+    border: 1px solid currentColor;
+    padding: 0.5ex 0.75ex;
+    font-family: "DM Mono", monospace;
+    font-size: 0.95em;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: var(--color__accent);
+    color: white;
+    border: none;
+    padding: 1ex 1.5ex;
+    font-weight: 700;
+    border-radius: 1lh;
+    margin-block-start: 1ex;
+    font-size: 1em;
+    text-align: center;
+    --transition: background-color 0.1s, color 0.1s;
+    transition: var(--transition);
+    overflow: hidden;
+
+    &.text-hidden {
+        color: transparent;
+    }
+
+    &:enabled {
+        &:hover {
+            background-color: color-mix(in oklab, black 10%, var(--color__accent));
+        }
+
+        &:active {
+            background-color: color-mix(in oklab, black 20%, var(--color__accent));
+        }
+    }
+
+    &:disabled {
+        cursor: default;
+        background-color: color-mix(in oklab, var(--color__accent), var(--color__neutral) 30%);
+    }
+}
+
+@media (min-width: 60rem) {
+    :root {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    body {
+        margin-block: auto;
+        padding-bottom: 8vh;
+    }
+
+    form {
+        flex-direction: row;
+        block-size: 7.5lh;
+
+        &::after {
+            --size: 14rem;
+            bottom: -3.5rem;
+            right: 6.9em;
+        }
+    }
+
+    #source {
+        flex-basis: 35rem;
+    }
+
+    .extra {
+        flex-basis: 25rem;
+        block-size: 100%;
+    }
+
+    input[type=submit] {
+        align-self: end;
+        margin-block-start: auto;
+        width: 4.2em;
+        transition: var(--transition), width 0.2s;
+
+        &:disabled {
+            width: 16.5em;
+        }
+    }
+}

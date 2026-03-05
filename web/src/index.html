@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Getting Started</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Geom:ital,wght@0,300..900;1,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>kladdvara</h1>
+            <a href="https://dandelion.computer"><img src="/dandelion.computer.svg" width="100" height="100"
+                    alt="dandelion.computer"></a>
+        </nav>
+        <p>
+            an <a href="https://en.wikipedia.org/wiki/Little_Computer_3">LC-3</a> emulator
+            <small>(<a href="https://github.com/solanto/kladdvara">source</a>)</small>
+        </p>
+    </header>
+    <form id="program-input">
+        <fieldset id="source">
+            <legend>
+                <h2>Pick your ingredients</h2>
+            </legend>
+            <div>
+                <label>
+                    <input type="radio" name="source" value="source--premade" checked>
+                    A program from Justin Meiners and Ryan Pendleton's
+                </label>
+                <a href="https://www.jmeiners.com/lc3-vm/">"Write your Own Virtual Machine"</a>
+            </div>
+            <br>
+            <label>
+                <input type="radio" name="source" value="source--web">
+                A program on the web, from a URL
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="source" value="source--upload">
+                A program uploaded from your device
+            </label>
+        </fieldset>
+        <div class="extra">
+            <fieldset id="source--premade">
+                <legend>
+                    Select a program</legend>
+                <div>
+                    <label>
+                        <input type="radio" name="source--premade" value="2048" checked>
+                        <cite>2048</cite><small> by Ryan Pendleton</small>
+                    </label>
+                    <small> (<a href="https://github.com/rpendleton/lc3-2048">source</a>)</small>
+                </div>
+                <br>
+                <div>
+                    <label>
+                        <input type="radio" name="source--premade" value="rogue">
+                        <cite>Rogue</cite><small> by Justin Meiners</small>
+                    </label>
+                    <small>(<a href="https://github.com/justinmeiners/lc3-rogue">source</a>)</small>
+                </div>
+            </fieldset>
+            <fieldset hidden id="source--web">
+                <label>
+                    Enter a URL
+                    <input type="url" name="source--web" aria-describedby="url-hint">
+                </label>
+                <p id="url-hint" class="hint">Be sure to provide a link to a binary file, not to assembly code.</p>
+            </fieldset>
+            <fieldset hidden id="source--upload">
+                <label>
+                    Upload a program
+                    <input type="file" name="source--upload" accept="application/octet-stream"
+                        aria-describedby="file-hint">
+                </label>
+                <p id="file-hint" class="hint">Be sure to provide a binary file, not assembly code.</p>
+            </fieldset>
+            <input type="submit" value="Start">
+        </div>
+    </form>
+    <main id="terminal">
+        <noscript>
+            <p class="noscript">
+                <span class="flag">⛔️ kladdvara: </span><span>Your browser doesn't seem to have JavaScript enabled!
+                    To run an emulator, kladdvara requires &nbsp;JavaScript.</span>
+            </p>
+        </noscript>
+    </main>
+    <aside>
+        <p>Yes, this is an ANSI terminal.</p>
+    </aside>
+</body>
+
+</html>
