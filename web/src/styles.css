@@ -167,7 +167,7 @@ form {
         --size: clamp(5rem, 30vw, 13rem);
         width: var(--size);
         height: calc(var(--size) / 2);
-        background-image: url("../public/kladdkaka.avif");
+        background-image: url("./kladdkaka.avif");
         background-size: contain;
         background-position: bottom;
         bottom: calc(90% + min(8vw, 8%) - 1rem);

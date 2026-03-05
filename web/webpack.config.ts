@@ -3,6 +3,7 @@ import path from "node:path"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import WasmPackPlugin from "@wasm-tool/wasm-pack-plugin"
+import CopyPlugin from "copy-webpack-plugin"
 // @ts-ignore
 import typogr from "typogr"
 
@@ -72,6 +73,14 @@ export default {
             crateDirectory: path.resolve(import.meta.dirname, "../core/terminals/web"),
             extraArgs: "--reference-types",
             // forceMode: "production"
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: "public",
+                    to: ""
+                }
+            ]
         })
     ],
     experiments: {
