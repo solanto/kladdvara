@@ -1,0 +1,3 @@
+[workspace]
+members = ["vm", "terminals/native", "terminals/web"]
+resolver = "3"

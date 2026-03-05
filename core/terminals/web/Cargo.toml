@@ -1,0 +1,16 @@
+[package]
+name = "web"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+ansi_term = "0.12.1"
+core = { path = "../../vm" }
+wasm-bindgen = "0.2.114"
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-Oz", "--enable-bulk-memory"]
+
