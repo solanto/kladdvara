@@ -6,3 +6,4 @@ web/.parcel-cache/
 web/dist/
 web/node_modules/
 web/.gitignore
+.vercel
