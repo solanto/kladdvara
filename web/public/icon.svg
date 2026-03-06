@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="-0.502" cy="-0.501" r="250.501" id="gradient-0" gradientTransform="matrix(1.293874, 1.353541, -1.736924, 1.660356, -0.722676, 1.01031)">
+      <stop offset="0" style="stop-color: rgb(163, 0, 98);"/>
+      <stop offset="1" style="stop-color: rgb(243, 211, 221);"/>
+    </radialGradient>
+  </defs>
+  <rect x="-0.502" y="-0.501" width="501.003" height="501.003" style="transform-box: fill-box; transform-origin: 50% 50%; fill: url(&quot;#gradient-0&quot;);"/>
+  <g style="filter: none;">
+    <g transform="matrix(0.832331, 0, 0, 1.008265, 64.797585, 23.23439)" style="">
+      <polygon style="stroke-width: 1; fill: rgb(44, 25, 7);" points="468.286 247.806 467.825 155.812 235.289 221.103 15.462 421.159"/>
+      <path style="fill: rgb(85, 46, 7);" d="M 245.701 45.491 L 468.286 155.812 L 15.462 421.159 L 245.701 45.491 Z"/>
+    </g>
+    <path d="M 224.193 93.459 L 356.64 247.106 L 91.745 247.106 L 224.193 93.459 Z" bx:shape="triangle 91.745 93.459 264.895 153.647 0.5 0 1@14894741" style="fill: rgb(246, 240, 225); stroke-width: 1; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(1, 0, 0.000001, 1, -46.312307, -24.357496)"/>
+    <ellipse style="fill: rgb(255, 0, 45); stroke-width: 1;" cx="194.649" cy="235.193" rx="59.464" ry="59.464"/>
+  </g>
+</svg>
