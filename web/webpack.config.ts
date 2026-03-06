@@ -1,4 +1,5 @@
 import type { Compiler, Configuration } from "webpack"
+import type { Configuration as DevServerConfiguration } from "webpack-dev-server"
 import path from "node:path"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
@@ -86,4 +87,4 @@ export default {
     experiments: {
         asyncWebAssembly: true
     }
-} satisfies Configuration
+} satisfies Configuration & { devServer?: DevServerConfiguration }
