@@ -128,6 +128,11 @@ h1 {
     color: var(--color__accent);
 }
 
+code {
+    font-family: "DM Mono", monospace;
+    line-height: 1;
+}
+
 aside {
     font-style: italic;
 }
@@ -178,10 +183,11 @@ form {
     }
 }
 
-fieldset {
-    border: none;
+fieldset,
+section {
     background-color: canvas;
     color: canvastext;
+    padding: 0.75rem;
 
     p:first-of-type {
         margin-block-start: 0;
@@ -190,6 +196,10 @@ fieldset {
     p:last-of-type {
         margin-block-end: 0;
     }
+}
+
+fieldset {
+    border: none;
 
     div label:has(input[type=radio]) {
         display: inline;
@@ -216,12 +226,14 @@ fieldset {
 
 fieldset,
 form::after,
-main {
+main,
+section {
     --shadow: 0 1pt 1pt color-mix(in oklab, black 25%, transparent);
 }
 
 fieldset,
-main {
+main,
+section {
     border-radius: 0.75rem;
     overflow: hidden;
     box-shadow: var(--shadow);
