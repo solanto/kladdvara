@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "README.md"
+      - "LICENSE.md"
+      - "core/terminals/native/**"
 
 env:
   PRODUCTION: true
