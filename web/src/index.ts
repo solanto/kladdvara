@@ -8,8 +8,40 @@ import { WasmVM as VM } from "../../core/terminals/web/pkg"
 import terminalTheme from "./terminal-theme"
 
 const programInput = document.getElementById("program-input")! as HTMLFormElement
+
+const sourceHandlers: { [k: string]: (d: FormDataEntryValue | null) => Promise<Uint8Array> } = {
+    "source--premade": async name => {
+        const networkError = new Error("couldn't load program from jmeiners.com")
+
+        try {
+            const bytes = await (
+                await fetch(`https://www.jmeiners.com/lc3-vm/supplies/${name}.obj`)
+            ).bytes()
+
+            if (bytes.length == 0) throw networkError
+
+            return bytes
+        } catch (error) {
+            if ((error as Error).name == "NetworkError") throw networkError
+            else throw error
+        }
+    },
+    "source--web": async url => {
+        if (!url) throw new Error("no URL provided")
+
+        return fetch(url.toString())
+            .then(response => response.bytes())
+    },
+    "source--upload": async file => {
+        if (!file || !(file instanceof File) || file.size == 0)
+            throw new Error("no file provided")
+
+        return new Uint8Array(await file.arrayBuffer())
+    }
+}
+
 const sources = Object.fromEntries(
-    ["source--premade", "source--web", "source--upload"]
+    Object.keys(sourceHandlers)
         .map(key =>
             [key, document.getElementById(key)!]
         )
@@ -105,41 +137,9 @@ function runSlice() {
     if (status != "halt") window.setTimeout(runSlice, 0)
 }
 
-const sourceHandlers: { [k: string]: (d: FormDataEntryValue | null) => Promise<Uint8Array> } = {
-    "source--premade": async name => {
-        const networkError = new Error("couldn't load program from jmeiners.com")
-
-        try {
-            const bytes = await (
-                await fetch(`https://www.jmeiners.com/lc3-vm/supplies/${name}.obj`)
-            ).bytes()
-
-            if (bytes.length == 0) throw networkError
-
-            return bytes
-        } catch (error) {
-            if ((error as Error).name == "NetworkError") throw networkError
-            else throw error
-        }
-    },
-    "source--web": async url => {
-        if (!url) throw new Error("no URL provided")
-
-        return fetch(url.toString())
-            .then(response => response.bytes())
-    },
-    "source--upload": async file => {
-        if (!file || !(file instanceof File) || file.size == 0)
-            throw new Error("no file provided")
-
-        return new Uint8Array(await file.arrayBuffer())
-    }
-
-}
-
 const submitButton = programInput.querySelector("input[type=submit]")! as HTMLInputElement
 
-function changeSubmitText(event: TransitionEvent) {
+function changeSubmitText() {
     submitButton.value = "Reload the page to start over"
     submitButton.classList.remove("text-hidden")
     submitButton.removeEventListener("transitionend", changeSubmitText)
