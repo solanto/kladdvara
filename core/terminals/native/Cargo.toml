@@ -6,10 +6,3 @@ edition = "2024"
 [dependencies]
 core = { path = "../../vm" }
 crossterm = "0.29.0"
-
-[profile.release]
-codegen-units = 1
-lto = true
-opt-level = 's'
-panic = "abort"
-strip = true
