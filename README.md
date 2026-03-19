@@ -2,6 +2,8 @@
 
 kladdvara is my [toy](https://blog.jsbarretto.com/post/software-is-joy) virtual machine for the Little Computer 3 (LC-3) architecture. Its core emulation logic is written in [Rust](https://rust-lang.org/). It's made to run in two environments: natively, atop an operating system; and in a web browser. Try it out [online](https://kladdvara.dandelion.computer)!
 
+![A screenshot of kladdvara's pink, cake-decorated, web UI. A form allows picking or uploading a program for emulation.](https://v1.screenshot.11ty.dev/https%3A%2F%2Fkladdvara.dandelion.computer/opengraph/)
+
 I referenced [Justin Meiners](https://www.jmeiners.com/) and [Ryan Pendleton](https://www.ryanp.me/)'s ["Write your Own Virtual Machine"](https://www.jmeiners.com/lc3-vm/) guide to write this; many thanks to them! kladdvara runs their [sample programs](https://www.jmeiners.com/lc3-vm/#running-the-vm) well.
 
 kladdvara's virtual machine has a couple limitations at the moment. Its only I/O is teletype, so it only supports text-based applications. Trap routines are handled directly by the emulator; they're not written to be handled by an LC-3 operating system. The machine also skips reserved instructions instead of panicking.
