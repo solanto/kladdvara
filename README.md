@@ -47,7 +47,7 @@ pnpm build
 
 This will place built artifacts at `web/dist`. The web app runs fully in the browser; any static web server can host those files to serve an instance.
 
-Quickly build and run the project for development with `pnpm dev`; Wepack will spin up its own dev server and hot-reload resources as frontend and core code changes.
+Quickly build and run the project for development with `pnpm dev`; Webpack will spin up its own dev server and hot-reload resources as frontend and core code changes.
 
 ## usage
 
